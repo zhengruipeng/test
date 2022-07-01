@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../stylesheets/main/main.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/main/memorandum-page.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/main/information-page.css" />
 </head>
 <body>
 <header>
-    <nav><a href="../vendor/format-form/form/view/form.jsp?table=student&handlePage=set-info.jsp">操作学生表</a></nav>
-    <nav>2</nav>
+    <nav id="student-table-nav">操作学生表</nav>
+    <nav id="course-table-nav">查看课程信息</nav>
     <nav>3</nav>
     <nav>4</nav>
     <nav>5</nav>
@@ -20,10 +22,30 @@
     <div class="arrow" id="to-pre-page">></div>
     <div class="arrow" id="to-next-page">></div>
     <section class="page main-cur-page">
-        第1页
+        <div id="memorandum-page-container">
+            <h1>您好，XXX</h1>
+            <p>今日待办事项如下：</p>
+            <ul>
+                <li>数学建模成绩出来了：成绩XXX，绩点：0</li>
+                <li>数学建模成绩出来了：成绩XXX，绩点：0</li>
+                <li>数学建模成绩出来了：成绩XXX，绩点：0</li>
+                <li>数学建模成绩出来了：成绩XXX，绩点：0</li>
+                <li>数学建模成绩出来了：成绩XXX，绩点：0</li>
+            </ul>
+        </div>
     </section>
     <section class="page main-next-page">
-        第2页
+        <div id="information-page-container">
+            <img src="../images/head.jpg"  alt=""/>
+            <dl>
+                <dt>姓名</dt>
+                <dd>xxx</dd>
+                <dt>入学时间</dt>
+                <dd>20xx</dd>
+                <dt>生日</dt>
+                <dd>1950</dd>
+            </dl>
+        </div>
     </section>
     <section class="page main-next-page">
         第3页
@@ -39,6 +61,7 @@
 
 </footer>
 <script type="module" src="../modules/main/UI.js"></script>
+<script type="module" src="../modules/main/nav-event.js"></script>
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded",function(){
 

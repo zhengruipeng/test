@@ -1,6 +1,6 @@
 //引入插件，注意路径的正确
-import {Form2Init} from "../../vendor/gradient-form/form2-init.js";
-import {FormUI} from "../../vendor/gradient-form/form-UI.js";
+import {Form2Init} from "../../plugins/gradient-form/form2-init.js";
+import {FormUI} from "../../plugins/gradient-form/form-UI.js";
 
 let formControl = [];
 //初始加载
@@ -22,14 +22,14 @@ document.addEventListener("DOMContentLoaded",function (){
                     <div id="id-code-container" style="display: inline-block"></div>
                 </div>
             `,[1,4],[2,1],true],
-        ["<span>登  录</span>",,[1,5],[2,1],false],
-        ["<span>找   回</span>",,[1,6],[2,1]],
+        ["<span id='login'>登  录</span>",,[1,5],[2,1],false],
+        ["<span id='forget-pwd'>找   回</span>",,[1,6],[2,1]],
     ],container);
 
     control1
-        .importStyleSheet("../vendor/gradient-form/form-style.css")
+        .importStyleSheet("../plugins/gradient-form/form-style.css")
         .initControls(2,5,"./main.html","post",undefined,"main-form");
-    // .runDefaultEffect("./vendor/gradient-form/form-UI.js");
+    // .runDefaultEffect("./plugins/gradient-form/form-UI.js");
     control1.formElement.style.width = "100%";
     control1.formElement.style.gridRowGap = "2em";
 

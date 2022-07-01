@@ -10,8 +10,8 @@
     <input type="text" name="val" value="4321" />
     <input type="submit" />
 </form>
-<form action="handle.jsp" enctype="application/x-www-form-urlencoded" method="post">
-  <input type="text" name="name" value="1234" />
+<form action="handleImage.jsp" enctype="multipart/form-data" method="post">
+  <input type="file" name="file" />
   <input type="text" name="val" value="4321" />
     <input type="submit" />
     <input type="submit" />
@@ -23,11 +23,11 @@
     const sub = form.querySelector("input[type='submit']");
     sub.onclick = function (ev){
         ev.preventDefault();
-        fetch2("./handle.jsp",{
+        fetch("./handleImage.jsp",{
             method:'POST',
             body:new FormData(form),
             headers:new Headers({
-                "content-type":"application/x-www-form-urlencoded",
+                "content-type":"multipart/form-data",
             })
         }).then(response => response.text())
             .then(console.log);

@@ -7,13 +7,25 @@ window.fetch2 = function (url,inits){
     let getFormEleFromFormData = function (formData){
         let formele = document.createElement("form");
         for(let value of formData.entries()){
-            // console.log(value);
-            let inputEle = document.createElement("input");
-            inputEle.type = "hidden";
-            inputEle.name = value[0];
-            inputEle.value = value[1];
-            console.log(inputEle)
-            formele.appendChild(inputEle);
+            console.log(value);
+            if(value[1].constructor === File){
+
+                let inputEle = document.createElement("input");
+                inputEle.type = "file";
+                inputEle.name = value[0];
+                console.log(inputEle,value[1].name)
+
+                inputEle.value = value[1].name;
+                formele.appendChild(inputEle);
+            }else if(typeof value[1] === "string"){
+                let inputEle = document.createElement("input");
+                inputEle.type = "hidden";
+                inputEle.name = value[0];
+                inputEle.value = value[1];
+                console.log(inputEle)
+                formele.appendChild(inputEle);
+            }
+
         }
         let inputEle = document.createElement("input");
         inputEle.type = "submit";
@@ -70,6 +82,8 @@ window.fetch2 = function (url,inits){
 
     let iframe = document.createElement("iframe");
     iframe.srcdoc = `<!DOCTYPE html><html>${doc.documentElement.innerHTML}</html>`;
+    iframe.style.width = "90vw";
+    iframe.style.height = "90vh";
     // iframe.srcdoc = doc.documentElement.innerHTML;
     document.body.appendChild(iframe);
     const win = iframe.contentWindow;

@@ -41,7 +41,4 @@ document.addEventListener("DOMContentLoaded",function (){
         changeToPage(currentPage+1);
 
     };
-    window.onselectstart = function (ev){
-        ev.preventDefault();
-    }
 })
