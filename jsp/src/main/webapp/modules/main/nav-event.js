@@ -8,5 +8,7 @@ document.addEventListener("DOMContentLoaded",function () {
     courseTableNav.onclick = function (){
         location = "../plugins/format-form/form/view/form.jsp?table=course&handlePage=set-info.jsp";
 
-    }
+    };
+
+
 });

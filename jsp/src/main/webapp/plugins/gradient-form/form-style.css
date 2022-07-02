@@ -1,35 +1,27 @@
 form{
     --transition-duration:.4s;
     --form-width:60vw;
-    --main-color:#00b3ff77;
-    --sec-color:#ffa7a4;
+    --main-color:#ddd;
+    --sec-color:#4B3A7E;
     --border-image-width: 2px;
     --border-image-slice: 1;
     --border-width:2px;
     --border-image-repeat:round;
-    --border-image-outset:30px;
+    --border-image-outset:0px;
+    background-color: #fffa;
+    box-shadow: 0 15px 5px  #fffa;
     margin:0em auto;
     width:var(--form-width);
     border:var(--main-color) solid var(--border-width);
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     display: grid;
-    /*grid-template-rows:[caption-start]1fr [caption-end id-start]1fr[id-end pwd-start] 1fr [pwd-end] 1fr 1fr;*/
-    /*grid-template-columns: 1fr [id-start pwd-start]1fr 1fr 1fr[id-end pwd-end] 1fr;*/
-   /* grid:
-             "...            caption   caption caption  ..." 1fr
-             "...            id            id          id          ..." 1fr
-             "...            gender    gender   gender  ..." 1fr
-             "...            age         age         age       ..." 1fr
-             "...            hobby     hobby     hobby   ..." 1fr
-             "...            home      home     home     ..." 1fr
-             "...            reset       cancel   submit   ..." 1fr /
-             1fr            1fr          1fr        1fr         1fr;*/
+
     grid-row-gap: 5vmin;
     grid-column-gap: 5vmin;
     border-image-source:linear-gradient(to right,var(--main-color),var(--main-color));
-    /*border-image-source:radial-gradient(300px 300px at 100px 0px,var(--main-color),var(--sec-color));*/
+
     border-image-width: var(--border-image-width);
-    border-image-slice: var(--border-image-slice);
+     border-image-slice: var(--border-image-slice);
     border-image-repeat: var(--border-image-repeat);
     border-image-outset: 0 0 20px 0;
     transition:var(--transition-duration);
@@ -45,7 +37,7 @@ h2{
     border:var(--main-color) solid var(--border-width);
     display: grid;
     /*grid-template: auto / auto;*/
-    color:var(--main-color);
+    color:var(--sec-color);
     border-image-source:linear-gradient(to right,var(--main-color),var(--main-color));
     border-image-width: var(--border-image-width);
     border-image-slice: var(--border-image-slice);
@@ -129,12 +121,7 @@ h2{
 .input-container>div>select {
     width:80%;
 }
-.input-container>div>label{
 
-}
-
-.input-container>div:hover{
-}
 .input-container>div::after {
     content:" ";
     display: block;

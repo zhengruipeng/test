@@ -3,12 +3,12 @@ body{
     margin:0;
     --header-height:4em;
     --transition-duration:.3s;
-    --main-color: rgb(2,126,160);
+    --main-color: rgba(75,58,126,1);
 }
 header{
     height:var(--header-height);
     width:100vw;
-    background-color:#444;
+    background-color:#4B3A7E;
     display: flex;
     flex-direction: row-reverse;
 
@@ -26,7 +26,7 @@ header>nav{
     transition:var(--transition-duration);
 }
 header>nav:hover{
-    background-color:rgba(0,0,0,.5);
+    background-color:#725BC8;
 }
 
 main{

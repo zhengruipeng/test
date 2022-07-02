@@ -1,4 +1,4 @@
-@keyframes title-anime {
+@keyframes default-anime {
     from{
         opacity: 0;
         transform: translateX(-2em);
@@ -10,7 +10,7 @@
     }
 }
 
-@keyframes content-anime {
+/*@keyframes default-anime {
     from{
         opacity: 0;
         transform: translateX(-2em);
@@ -20,7 +20,7 @@
         transform: translateX(0);
 
     }
-}
+}*/
 
 
 #information-page-container{
@@ -28,6 +28,7 @@
     margin:3em auto;
     /*border:red solid 1px;*/
     --animation-duration:.5s;
+
 }
 
 #information-page-container>img{
@@ -41,12 +42,12 @@
     margin:2em;
 
 
-    animation-name: title-anime;
-    animation-duration: var(--animation-duration);
+    /*animation-name: default-anime;*/
+/*    animation-duration: var(--animation-duration);
     animation-direction: normal;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
-    animation-timing-function: ease-out;
+    animation-timing-function: ease-out;*/
 }
 /*#information-page-container>p,*/
 #information-page-container>dl {
@@ -70,39 +71,17 @@
     width:40vw;
 
 
-    animation-name: content-anime;
-    animation-delay: var(--animation-duration);
-    animation-duration: var(--animation-duration);
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
 }
 #information-page-container>dl>dt {
     grid-column: name;
-
 }
 #information-page-container>dl>dd {
     grid-column: value;
-
-
     margin:0;
-
 }
-#information-page-container>ul {
-    list-style-type: decimal;
-
-/*    font-family: "sans-serif 微软雅黑";
-    font-weight: 300;
-    font-size: 1.4em;
-    margin:1em;
+#information-page-container>a {
+    opacity: 0;
+    transform: translateX(-2em);
 
 
-    animation-name: content-anime;
-    animation-delay: var(--animation-duration);
-    animation-duration: var(--animation-duration);
-    animation-direction: normal;
-    animation-fill-mode: forwards;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;*/
 }

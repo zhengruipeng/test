@@ -36,7 +36,7 @@
     <div id="aside-container">
         <ul class="menu">
             <li class="menu-item" id="delete-selected">删除所有选中</li>
-            <li class="menu-item" id="add-student">添加学生信息</li>
+            <li class="menu-item" id="add-student">添加信息</li>
             <li class="menu-item" id="select-all" data-select="none">反选</li>
             <li class="menu-item" id="file-import">批量导入</li>
             <li class="menu-item" id="update-monolog">更新日志</li>
