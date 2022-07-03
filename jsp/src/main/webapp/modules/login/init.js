@@ -1,6 +1,6 @@
 //引入插件，注意路径的正确
-import {Form2Init} from "../../plugins/gradient-form/form2-init.js";
-import {FormUI} from "../../plugins/gradient-form/form-UI.js";
+import {Form2Init} from "../../functions/gradient-form/form2-init.js";
+import {FormUI} from "../../functions/gradient-form/form-UI.js";
 
 let formControl = [];
 //初始加载
@@ -14,21 +14,26 @@ document.addEventListener("DOMContentLoaded",function (){
     // 第三个参数是[起始X,起始Y]，第四个参数是[终止X,终止Y]
     let control1 = new Form2Init([
         ["<h2>登录</h2>",,[1,1],[2,1],false],
-        ["用户名",'<input type="text" />',[1,2],[2,1],true],
-        ["密   码",'<input type="password" />',[1,3],[2,1],true],
+        ["用户名",'<input type="text" name="username" />',[1,2],[2,1],true],
+        ["密   码",'<input type="password" name="password" />',[1,3],[2,1],true],
+        ["职责选择",
+            '<label>学生：<input type="radio" name="occupation" value="student" /></label>' +
+            '<label>老师：<input type="radio" name="occupation" value="teacher" /></label>' +
+            '<label>管理员：<input type="radio" name="occupation" value="manager" /></label>',
+            [1,4],[2,1],true],
         ["验证码",`
                 <div>
                     <input type="text" id="id-code" style="margin-right: 50px;vertical-align: center;" />
                     <div id="id-code-container" style="display: inline-block"></div>
                 </div>
-            `,[1,4],[2,1],true],
-        ["<span id='login'>登  录</span>",,[1,5],[2,1],false],
-        ["<span id='forget-pwd'>找   回</span>",,[1,6],[2,1]],
+            `,[1,5],[2,1],true],
+        ["<span id='login'>登  录</span>",,[1,6],[2,1],false],
+        ["<span id='forget-pwd'>找   回</span>",,[1,7],[2,1]],
     ],container);
 
     control1
-        .importStyleSheet("../plugins/gradient-form/form-style.css")
-        .initControls(2,5,"./main.html","post",undefined,"main-form");
+        .importStyleSheet("../functions/gradient-form/form-style.css")
+        .initControls(2,6,"./main.html","post",undefined,"main-form");
     // .runDefaultEffect("./plugins/gradient-form/form-UI.js");
     control1.formElement.style.width = "100%";
     control1.formElement.style.gridRowGap = "2em";

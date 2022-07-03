@@ -1,5 +1,5 @@
 //引入插件，注意路径的正确
-import {IdentifyingCode} from "../../plugins/Identifying-code/Identifying-code.js";
+import {IdentifyingCode} from "../../functions/Identifying-code/Identifying-code.js";
 import {formControl} from "./init.js";
 //初始加载
 document.addEventListener("DOMContentLoaded",function (){

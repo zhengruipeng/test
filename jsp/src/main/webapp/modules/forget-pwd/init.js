@@ -1,6 +1,6 @@
 //引入插件，注意路径的正确
-import {Form2Init} from "../../plugins/gradient-form/form2-init.js";
-import {FormUI} from "../../plugins/gradient-form/form-UI.js";
+import {Form2Init} from "../../functions/gradient-form/form2-init.js";
+import {FormUI} from "../../functions/gradient-form/form-UI.js";
 
 let formControl = [];
 //初始加载
