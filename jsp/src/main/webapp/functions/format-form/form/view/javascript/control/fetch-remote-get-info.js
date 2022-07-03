@@ -1,4 +1,4 @@
-import {MyApp} from "../config/config.js"
+import {MyApp} from "../../../../../../public/config.js";
 document.addEventListener("DOMContentLoaded",async function (){
     // alert(MyApp.table);
     fetch("../control/get-info.jsp?table="+MyApp.table)

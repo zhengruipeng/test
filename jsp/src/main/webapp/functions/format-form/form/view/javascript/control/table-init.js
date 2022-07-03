@@ -1,6 +1,6 @@
-import {MyApp} from "../config/config.js";
+import {MyApp} from "../../../../../../public/config.js"
 import {Student} from "../model/Student.js";
-import {IndexedDBCurd} from "../config/indexedDB-curd.js";
+import {IndexedDBCurd} from "../../../../../../public/indexedDB-curd.js";
 
 document.addEventListener("DOMContentLoaded",function (){
 

@@ -1,10 +1,11 @@
-import {MyApp} from "../config/config.js";
+import {MyApp} from "../../../../../../public/config.js"
 import {notify} from "../view/notification.js";
 import {io} from "../view/output-info-into-panel.js";
 import {map as monologKeyMap} from "../monolog/dataUpdateMonologKeyMap.js";
 import {dataUpdateMonologWriter} from "../monolog/dataUpdateMonologWriter.js";
 
 document.addEventListener("DOMContentLoaded",function main(){
+
 
     let initTableWith2dArr = function (arr2d){
         let table = document.createElement("table");
@@ -28,10 +29,18 @@ document.addEventListener("DOMContentLoaded",function main(){
     MyApp.customEvent.addListener("tableinit",function () {
         console.log(7);
 
-        const updateMonologBtn = document.querySelector("#update-monolog");
+        //            <li class="menu-item" id="update-monolog">更新日志</li>
+        // const updateMonologBtn = document.querySelector("#update-monolog");
         const asideDisplay = document.querySelector("#aside-display");
         const informationForm = document.querySelector("#aside-container>ul.information-form");
         const menu = document.querySelector(".menu");
+
+
+        const updateMonologBtn = document.createElement("li");
+        updateMonologBtn.id = "update-monolog";
+        updateMonologBtn.className = "menu-item";
+        updateMonologBtn.innerText = "更新日志";
+        menu.appendChild(updateMonologBtn);
 
 
         let showMonolog = async function (){

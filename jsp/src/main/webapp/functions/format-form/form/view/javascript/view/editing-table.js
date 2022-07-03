@@ -1,4 +1,4 @@
-import {MyApp} from "../config/config.js";
+import {MyApp} from "../../../../../../public/config.js"
 
 document.addEventListener("DOMContentLoaded",function main(){
 

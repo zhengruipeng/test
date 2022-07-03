@@ -1,7 +1,7 @@
-import {MyApp} from "../config/config.js";
+import {MyApp} from "../../../../../../public/config.js"
 import {io} from "../view/output-info-into-panel.js";
 import {notify} from "../view/notification.js";
-import {IndexedDBCurd} from "../config/indexedDB-curd.js";
+import {IndexedDBCurd} from "../../../../../../public/indexedDB-curd.js";
 import {dataUpdateMonologWriter} from "../monolog/dataUpdateMonologWriter.js";
 import {removeItem} from "../view/lay-page.js";
 

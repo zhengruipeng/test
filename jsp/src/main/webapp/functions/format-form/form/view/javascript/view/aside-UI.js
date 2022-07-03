@@ -1,6 +1,6 @@
-import {MyApp} from "../config/config.js";
+import {MyApp} from "../../../../../../public/config.js"
 import {Student} from "../model/Student.js";
-import {IndexedDBCurd} from "../config/indexedDB-curd.js";
+import {IndexedDBCurd} from "../../../../../../public/indexedDB-curd.js";
 import {notify} from "./notification.js";
 import {io} from "./output-info-into-panel.js";
 import {dataUpdateMonologWriter} from "../monolog/dataUpdateMonologWriter.js";
@@ -47,14 +47,43 @@ document.addEventListener("DOMContentLoaded",function (){
         const table = document.querySelector("table");
         const tbody = table.querySelector("tbody");
         const asideLogoBtn = document.querySelector("#aside-logo");
-        const deleteSelectedBtn = document.querySelector("#delete-selected");
-        const addStudentBtn = document.querySelector("#add-student");
-        const selectAllBtn = document.querySelector("#select-all");
+        // const  = document.querySelector("#select-all");
         const aside = document.querySelector("aside");
         const menu = document.querySelector(".menu");
         const informationForm = document.querySelector(".information-form");
         const main = document.querySelector("main");
         const nextBtn = document.getElementById("next-page");
+
+        /*
+        * <li class="menu-item" id="delete-selected">删除所有选中</li>
+            <li class="menu-item" id="add-student">添加信息</li>
+            <li class="menu-item" id="select-all" data-select="none">反选</li>
+        * */
+
+        //添加信息摁扭
+        const addStudentBtn = document.createElement("li");
+        addStudentBtn.id = "add-student";
+        addStudentBtn.className = "menu-item";
+        addStudentBtn.innerText = "添加信息"
+
+        //删除所有选中摁扭
+        const deleteSelectedBtn = document.createElement("li");
+        deleteSelectedBtn.id = "delete-selected";
+        deleteSelectedBtn.className = "menu-item";
+        deleteSelectedBtn.innerText = "删除所有选中";
+
+        //反选摁扭
+        const selectAllBtn = document.createElement("li");
+        selectAllBtn.id = "select-all";
+        selectAllBtn.className = "menu-item";
+        selectAllBtn.dataset.select = "none";
+        selectAllBtn.innerText = "反选";
+
+
+        menu.appendChild(addStudentBtn);
+        menu.appendChild(deleteSelectedBtn);
+        menu.appendChild(selectAllBtn);
+
 
         let addStudent = function (toURL,/* id, name, age, sdept*/params) {
             let setupInputElement = function (name, value) {
@@ -166,20 +195,7 @@ document.addEventListener("DOMContentLoaded",function (){
             return tr;
         };
 
-        asideLogoBtn.onclick = function () {
-            this.onmouseout.call(this, null);
-            if (MyApp.asideMode) {
-                MyApp.asideMode = false;
-                asideLogoBtn.className = "aside-logo-close";
-                aside.className = "aside-close";
-                main.style.filter = "blur(0)";
-            } else {
-                MyApp.asideMode = true;
-                asideLogoBtn.className = "aside-logo-open";
-                aside.className = "aside-open";
-                main.style.filter = "blur(10px)";
-            }
-        };
+        //删除所有选中
         deleteSelectedBtn.onclick = function () {
             let rows = Array.from(table.rows);
             rows.forEach((row, index) => {
@@ -193,6 +209,18 @@ document.addEventListener("DOMContentLoaded",function (){
                 }
             });
         };
+        //反选
+        selectAllBtn.onclick = function () {
+            Array.from(tbody.rows).forEach(tr => {
+                let selectedSpan = tr.cells[0].querySelector("span");
+                if(selectedSpan.classList.contains("select-justify-ensure"))
+                    selectedSpan.classList.remove("select-justify-ensure");
+                else
+                    selectedSpan.classList.add("select-justify-ensure");
+            })
+            asideLogoBtn.click();
+        };
+        //添加学生
         addStudentBtn.onclick = function () {
             //打开学生信息填写栏
             informationForm.classList.remove("information-form-close");
@@ -282,24 +310,7 @@ document.addEventListener("DOMContentLoaded",function (){
             informationForm.appendChild(cancelBtn);
             informationForm.appendChild(submitBtn);
         };
-        asideLogoBtn.onmouseover = function () {
-            if (aside.classList.contains("aside-close")) {
-                this.style.transform = "translate(10px,0)";
-            }
-        };
-        asideLogoBtn.onmouseout = function () {
-            this.style.transform = "";
-        };
-        selectAllBtn.onclick = function () {
-            Array.from(tbody.rows).forEach(tr => {
-                let selectedSpan = tr.cells[0].querySelector("span");
-                if(selectedSpan.classList.contains("select-justify-ensure"))
-                    selectedSpan.classList.remove("select-justify-ensure");
-                else
-                    selectedSpan.classList.add("select-justify-ensure");
-            })
-            asideLogoBtn.click();
-        };
+
 
         MyApp.eventFunctions.addStudent = addStudent;
         MyApp.eventFunctions.insertTr = insertTr;

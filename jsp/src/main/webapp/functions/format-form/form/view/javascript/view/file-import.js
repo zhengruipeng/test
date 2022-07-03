@@ -1,4 +1,4 @@
-import {MyApp} from "../config/config.js";
+import {MyApp} from "../../../../../../public/config.js"
 import {notify} from "../view/notification.js";
 import {io} from "../view/output-info-into-panel.js";
 
@@ -7,10 +7,19 @@ document.addEventListener("DOMContentLoaded",function main(){
     MyApp.customEvent.addListener("tableinit",function () {
         console.log(6);
 
-        const fileImportBtn = document.querySelector("#file-import");
         const asideDisplay = document.querySelector("#aside-display");
         const informationForm = document.querySelector("#aside-container>ul.information-form");
         const menu = document.querySelector(".menu");
+
+
+        const fileImportBtn = document.createElement("li");
+        fileImportBtn.id = "file-import";
+        fileImportBtn.className = "menu-item";
+        fileImportBtn.innerText = "批量导入";
+
+        menu.appendChild(fileImportBtn);
+
+
 
         let dataArr = null;
 

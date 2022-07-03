@@ -14,9 +14,9 @@
 
     String table = request.getParameter("table");
 %>
-import {MyApp} from "./javascript/config/config.js";
+import {MyApp} from "../../../../public/config.js";
 import {notify} from "./javascript/view/notification.js";
-import {IndexedDBCurd} from "./javascript/config/indexedDB-curd.js";
+import {IndexedDBCurd} from "../../../../public/indexedDB-curd.js";
 
 (function (){
     let indexDBReq = indexedDB.open("managerDB",4);
