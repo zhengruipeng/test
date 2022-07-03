@@ -4,6 +4,9 @@ body{
     --header-height:4em;
     --transition-duration:.3s;
     --main-color: rgba(75,58,126,1);
+    --max-header-height:16em;
+    --item-padding:2em;
+    overflow-y: hidden;
 }
 header{
     height:var(--header-height);
@@ -11,21 +14,38 @@ header{
     background-color:#4B3A7E;
     display: flex;
     flex-direction: row-reverse;
-
+    transition:.3s;
+}
+header:hover{
+    height:var(--max-header-height);
+    /*height: calc(attr(data-max-item-number) * 4em);*/
 }
 header>nav{
-    padding: 0 3em;
-    height:100%;
     color:white;
     text-align: center;
-    line-height:100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    line-height:var(--header-height);
     cursor: pointer;
     transition:var(--transition-duration);
+    overflow: hidden;
+    padding:0 var(--item-padding);
 }
 header>nav:hover{
+    /*background-color:#725BC8;*/
+}
+header>nav>ul{
+    margin:0;
+    padding: 0 var(--item-padding) 0 0;
+    list-style-type: none;
+    transition: var(--transition-duration);
+    display: block;
+    height:100%;
+    width:100%;
+
+}
+header>nav>ul>li{
+    width:100%;
+}
+header>nav>ul>li:hover{
     background-color:#725BC8;
 }
 
