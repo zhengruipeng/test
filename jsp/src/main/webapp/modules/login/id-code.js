@@ -2,6 +2,7 @@
 import {IdentifyingCode} from "../../functions/Identifying-code/Identifying-code.js";
 import {formControl} from "./init.js";
 //初始加载
+
 document.addEventListener("DOMContentLoaded",function (){
 
     //获取HTML标签
@@ -35,4 +36,4 @@ document.addEventListener("DOMContentLoaded",function (){
         })
     });
 
-})
+});

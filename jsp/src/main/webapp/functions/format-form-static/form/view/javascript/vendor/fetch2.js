@@ -66,14 +66,14 @@ window.fetch2 = function (url,inits){
     doc.body.appendChild(formEle);
 
     let iframe = document.createElement("iframe");
-    iframe.srcdoc = `${doc.documentElement.innerHTML}`;
+    iframe.srcdoc = `<!DOCTYPE html><html>${doc.documentElement.innerHTML}</html>`;
     iframe.style.display = "none";
     // iframe.srcdoc = doc.documentElement.innerHTML;
     document.body.appendChild(iframe);
     const win = iframe.contentWindow;
-    let originText = win.document.body.innerText;
+    let originText = win.document.documentElement.innerHTML;
     win.onload = function (){
-        originText = win.document.body.innerText;
+        originText = win.document.documentElement.innerHTML;
         let form = win.document.forms[0];
         let submitBtn = form.querySelector("input[type='submit']");
 
@@ -87,9 +87,7 @@ window.fetch2 = function (url,inits){
                     //触发卸载事件之后计时，直到页面刷新为止。
                     let timer = setInterval(function () {
                         // console.log("interval");
-                        let responseText = win.document.body?.innerText;
-                        // console.log(originText);
-                        // console.log(responseText);
+                        let responseText = win.document.documentElement?.innerHTML;
                         if (responseText !== originText && responseText) {
                             //这里的代码会被触发两次
                             clearInterval(timer);
@@ -103,18 +101,6 @@ window.fetch2 = function (url,inits){
                     }, 16);
                     setTimeout(function () {
                         clearInterval(timer);
-                        let responseText = win.document.body?.innerText;
-
-                        if (responseText !== originText && !responseText) {
-                            //这里的代码会被触发两次
-                            clearInterval(timer);
-                            // console.log(responseText);
-                            // console.log(originText);
-                            resolve(new Response(responseText, {status: 200}));
-                            // iframe.parentNode.removeChild(iframe);
-                            // console.log(iframe.parentElement);
-                            iframe.parentElement?.removeChild(iframe);
-                        }
                         reject("request time out");
                     }, 5000);
                 }catch (e){}

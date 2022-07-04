@@ -87,5 +87,6 @@ let IdentifyingCode = class extends Object{
 
     }
 };
+let currentCode = null;
 
-export {IdentifyingCode};
+export {IdentifyingCode,currentCode};

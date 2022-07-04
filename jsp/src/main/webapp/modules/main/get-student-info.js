@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded",function () {
     const informationPageContainer = this.querySelector("#information-page-container");
     const usernameContainer = memorandumPageContainer.querySelector("h1>span");
     const infoContainer = informationPageContainer.querySelector("dl");
-    fetch2("../main/CheckStudentInfo"+location.search,{
+    fetch2("../main/CheckStudentInfo?username="+localStorage.getItem("usernaem")+"" +
+        "&occupation="+localStorage.getItem("occupation")+"",{
         method:"get",
     })
         .then(response => response.json())

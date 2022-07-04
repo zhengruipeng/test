@@ -35,12 +35,7 @@
 <aside>
     <div id="aside-container">
         <ul class="menu">
-            <%--<li class="menu-item" id="delete-selected">删除所有选中</li>
-            <li class="menu-item" id="add-student">添加信息</li>
-            <li class="menu-item" id="select-all" data-select="none">反选</li>--%>
-<%--            <li class="menu-item" id="file-import">批量导入</li>--%>
-<%--            <li class="menu-item" id="update-monolog">更新日志</li>--%>
-<%--            <li class="menu-item">同步到云端（还没开始做）</li>--%>
+
             <li class="menu-item">当前时间: <span id="datetime-display"></span></li>
             <li class="menu-item"><a href="../../../../web-pages/main.html">回到主页面</a></li>
         </ul>
@@ -78,8 +73,6 @@
     import {MyApp} from "../../../../public/config.js";
     MyApp.table = "<%=request.getParameter("table")%>";
     MyApp.handlePage = "<%=request.getParameter("handlePage")%>";
-    // MyApp.enablePlugins = "aside-UI,file-import,update-monolog";
-    // MyApp.insertPlugins = "url1,url2";
 </script>
 <script type="module">
     navigator.serviceWorker.register('./service-worker.js',{scope:"./"});
@@ -87,7 +80,6 @@
         console.log(ev.data);
     }
 </script>
-<script type="module" src="javascript/control/fetch-remote-get-info.js"></script>
 <script type="module" src="javascript/control/table-init.js"></script>
 <script type="module" src="javascript/control/UI-and-network-processing.js"></script>
 <script type="module" src="javascript/view/table-resize.js"></script>
