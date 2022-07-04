@@ -30,7 +30,7 @@ public class CheckLogin extends HttpServlet {
         //teacher老师，
         //student学生
         //manager管理员，
-        //根据给定职业的不同分别连接至不同的数据库
+        //根据给定职业的不同分别连接至不同的数据表
         String occupation = request.getParameter("occupation");
 
         //数据库操作

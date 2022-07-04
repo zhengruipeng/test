@@ -1,5 +1,6 @@
 import {keyWord,keywordTitleMap} from "./keyword-title-map.js";
 import {notify} from "../../public/notification/notification.js";
+import {MyApp} from "../../public/config.js";
 
 document.addEventListener("DOMContentLoaded",function () {
     const memorandumPageContainer = this.querySelector("#memorandum-page-container");
@@ -36,15 +37,22 @@ document.addEventListener("DOMContentLoaded",function () {
             // console.log(map);
 
             for (let name in json) {
-                if(!keyWord.includes(name))return false;
+                if(!keyWord.includes(name))continue;
+                if(name === "id")continue;
+                if(name === "occupation")continue;
+
 
                 let dt = document.createElement("dt");
                 let dd = document.createElement("dd");
+                dt.dataset.title = name;
                 dt.innerHTML = keywordTitleMap.get(name);
                 dd.innerHTML = json[name];
+                dd.contentEditable = true;
+                dd.dataset.title = name;
 
                 infoContainer.appendChild(dt);
                 infoContainer.appendChild(dd);
+                MyApp.customEvent.dispatchEvent("infoinit");
             }
         });
 

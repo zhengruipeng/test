@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded",function main(){
             let formData = new FormData();
             formData.append("lessons",jsonString);
 
-            fetch2("../selectingcourse/InsertCourse",{
+            fetch2("../selectcourseteacher/InsertCourse",{
                 method:"post",
                 body:formData,
                 headers:{

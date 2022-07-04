@@ -1,4 +1,4 @@
-package selectingcourse;
+package selectingcourseteacher;
 import com.alibaba.fastjson.JSONObject;
 
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.util.Map;
 import java.util.TreeMap;
 
-@WebServlet("/selectingcourse/CheckCourseInfo")
+@WebServlet("/selectingcourseteacher/CheckCourseInfo")
 public class checkCourseInfo extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
