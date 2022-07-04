@@ -3,16 +3,20 @@ import {map as gradeTitleMap} from "../main/grade-title-map.js";
 
 document.addEventListener("DOMContentLoaded",function (){
     const tbody = this.querySelector("table>tbody");
-    let initTableWith2dArr = function (arr2d){
+    let initTableWith2dArr = function (arr2d,titles){
         let table = document.createElement("table");
         let tbody = document.createElement("tbody");
         table.appendChild(tbody);
         let fragment = document.createDocumentFragment();
         arr2d.forEach(row => {
             let tr = document.createElement("tr");
-            row.forEach(col => {
+            row.forEach((col,index) => {
                 let td = document.createElement("td");
+                let height = td.getBoundingClientRect().height;
+                td.dataset.itemTitle = titles[index];
                 td.innerHTML = col;
+                td.style.height = height;
+                td.style.transition = ".3s";
                 tr.appendChild(td);
             })
             fragment.appendChild(tr);
@@ -22,7 +26,7 @@ document.addEventListener("DOMContentLoaded",function (){
     };
 
     let getGrade = function (){
-    fetch2("../selectcourse/CheckCourseGrade?username="+localStorage.getItem("username")+"",{
+    fetch2("../selectcourse/CheckCourseGrade?username="+sessionStorage.getItem("username")+"",{
         method:"get",
     }).then(response => response.text())
         .then(text => {
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded",function (){
                     arr2d.push(temp);
                 }
 
-                let table = initTableWith2dArr(arr2d);
+                let table = initTableWith2dArr(arr2d,Object.keys(json[0]));
             // console.log(table);
                 let trs = Array.from(table.querySelectorAll("tr"));
                 trs.forEach(tr => {

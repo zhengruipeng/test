@@ -1,12 +1,20 @@
 import {keyWord,keywordTitleMap} from "./keyword-title-map.js";
+import {notify} from "../../public/notification/notification.js";
 
 document.addEventListener("DOMContentLoaded",function () {
     const memorandumPageContainer = this.querySelector("#memorandum-page-container");
     const informationPageContainer = this.querySelector("#information-page-container");
     const usernameContainer = memorandumPageContainer.querySelector("h1>span");
     const infoContainer = informationPageContainer.querySelector("dl");
-    fetch2("../main/CheckStudentInfo?username="+localStorage.getItem("usernaem")+"" +
-        "&occupation="+localStorage.getItem("occupation")+"",{
+    if(!sessionStorage.getItem("username")){
+        notify.print("登录超时");
+        location = "../web-pages/login.html";
+        return false;
+
+    }
+
+    fetch2("../main/CheckStudentInfo?username="+sessionStorage.getItem("username")+"" +
+        "&occupation="+sessionStorage.getItem("occupation")+"",{
         method:"get",
     })
         .then(response => response.json())

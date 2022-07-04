@@ -29,7 +29,7 @@ public class checkCourseInfo extends HttpServlet {
         String sId = request.getParameter("username");
 
         //数据库操作
-        //根据id找学生选课
+        //用数据库导出所有课程
         //JDBC code here...
 
 
@@ -39,21 +39,20 @@ public class checkCourseInfo extends HttpServlet {
         //把所有的结果集中的字段传入map中
         TreeMap<String, Map> map = new TreeMap<String,Map>();
         TreeMap<String,String> childmap1 = new TreeMap<String,String>();
-        childmap1.put("Sno","学号");
-        childmap1.put("Cno","课程号");
         childmap1.put("Tno","老师编号");
-        childmap1.put("grade","成绩");
         childmap1.put("Tname","老师姓名");
-        childmap1.put("Sname","学生姓名");
+        childmap1.put("Cno","课程号");
+        childmap1.put("Cname","课程名字");
+        childmap1.put("Ccre","课程学分");
+
         map.put("0",childmap1);
 
         TreeMap<String,String> childmap2 = new TreeMap<String,String>();
-        childmap2.put("Sno","学号2");
-        childmap2.put("Cno","课程号2");
         childmap2.put("Tno","老师编号2");
-        childmap2.put("grade","成绩2");
         childmap2.put("Tname","老师姓名2");
-        childmap2.put("Sname","学生姓名2");
+        childmap2.put("Cno","课程号2");
+        childmap2.put("Cname","课程名字2");
+        childmap2.put("Ccre","课程学分2");
         map.put("1",childmap2);
 
 

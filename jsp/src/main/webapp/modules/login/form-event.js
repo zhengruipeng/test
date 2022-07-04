@@ -66,8 +66,8 @@ document.addEventListener("DOMContentLoaded",async function () {
             .then(text => {
                 // console.log(text);
                 if(text.indexOf("success") !== -1){
-                    localStorage.setItem("username",username);
-                    localStorage.setItem("occupation",occupation);
+                    sessionStorage.setItem("username",username);
+                    sessionStorage.setItem("occupation",occupation);
 
                     location = "./main.html?username="+username+"&occupation="+occupation;
 

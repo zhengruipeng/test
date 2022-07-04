@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded",function (){
             td.style.cursor = "pointer";
         }
     };
-
+    MyApp.customEvent.addListener("tableinit",function (){
         table = document.querySelector("table");
         colgroup = document.querySelector("table>colgroup");
         cols = colgroup.children;
@@ -76,4 +76,5 @@ document.addEventListener("DOMContentLoaded",function (){
                 td.style.height = 0 + "px";
             })
         };
+    });
 });
