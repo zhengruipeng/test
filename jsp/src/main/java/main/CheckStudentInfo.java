@@ -55,6 +55,8 @@ public class CheckStudentInfo extends HttpServlet {
         map.put("department","此字段输入院系或专业");
         map.put("position","此字段输入职位");
         map.put("startTime","此字段输入入学时间");
+        map.put("leaderName","此字段输入院长/辅导员姓名");
+        map.put("leaderTel","此字段输入院长/辅导员电话");
 
         // 设置json的字符编码，中文乱码
         response.setContentType("text/json;charset=UTF-8");

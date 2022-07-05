@@ -54,6 +54,7 @@ let IndexedDBCurd = class extends Object{
         IndexedDBCurd.setDatabase();
 
         // "id" in data||data.id = id;
+        // console.log(MyApp.table);
         let IDBTransaction = IndexedDBCurd.database.transaction(MyApp.table,"readwrite");
         let IDBObjectStore = IDBTransaction.objectStore(MyApp.table);
         let openCursorIDBRequest = IDBObjectStore.openCursor();

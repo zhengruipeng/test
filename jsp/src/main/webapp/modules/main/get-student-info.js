@@ -45,9 +45,13 @@ document.addEventListener("DOMContentLoaded",function () {
                 let dt = document.createElement("dt");
                 let dd = document.createElement("dd");
                 dt.dataset.title = name;
-                dt.innerHTML = keywordTitleMap.get(name);
+                dt.innerHTML =  typeof keywordTitleMap.get(name) === "function"?
+                    keywordTitleMap.get(name)(sessionStorage.getItem("occupation")):
+                    keywordTitleMap.get(name);
                 dd.innerHTML = json[name];
-                dd.contentEditable = true;
+                if(name === "username"){
+                    dd.contentEditable = true;
+                }
                 dd.dataset.title = name;
 
                 infoContainer.appendChild(dt);

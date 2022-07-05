@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/jsp/src/main/webapp/mysql/conn.jsp" value="file://$PROJECT_DIR$/jsp/src/main/webapp/mysql" />
+        <entry key="file://$PROJECT_DIR$/jsp/src/main/webapp/web-pages/main.html" value="file://$PROJECT_DIR$/jsp/src/main/webapp/web-pages" />
       </map>
     </option>
   </component>

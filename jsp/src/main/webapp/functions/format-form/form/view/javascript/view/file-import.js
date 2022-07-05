@@ -1,5 +1,5 @@
 import {MyApp} from "../../../../../../public/config.js"
-import {notify} from "../view/notification.js";
+import {notify} from "./notification.js";
 import {io} from "../view/output-info-into-panel.js";
 
 document.addEventListener("DOMContentLoaded",function main(){
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded",function main(){
                 //将所有参数依次添加至数据库，并用数组记录值和是否成功
                 let errors = [];
                 params.forEach(param => {
-                    let done = MyApp.eventFunctions.addStudent("../control/set-info.jsp", param);
+                    let done = MyApp.eventFunctions.addStudent("../../"+MyApp.handlePage, param);
                     errors.push({done,value:param});
                 });
 

@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded",function (){
                 section.classList.remove("main-pre-page");
                 try{
                     let items = Array.from(section.querySelector(".container")?.children);
-                    console.log(items);
+                    // console.log(items);
                     items.forEach((item,index) => {
                         item.style.animationName = "default-anime";
                         item.style.animationDelay = `calc(${index} * var(--animation-duration))`

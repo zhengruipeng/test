@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../stylesheets/main/main.css" />
     <link rel="stylesheet" type="text/css" href="../stylesheets/main/memorandum-page.css" />
     <link rel="stylesheet" type="text/css" href="../stylesheets/main/information-page.css" />
+    <link rel="stylesheet" type="text/css" href="../stylesheets/main/vote-page.css" />
     <link rel="stylesheet" type="text/css" href="../public/notification/notification-style.css" />
 </head>
 <body>
@@ -17,7 +18,7 @@
             <li>已选课成绩</li>
         </ul>
     </nav>
-    <nav id="course-teacher-nav">教师查看课程信息</nav>
+    <nav id="course-teacher-nav">查看课程信息</nav>
     <nav id="account-manager">账户管理
         <ul>
             <li>管理学生</li>
@@ -25,7 +26,7 @@
             <li>管理管理员</li>
         </ul>
     </nav>
-    <nav>课程投票</nav>
+    <nav id="course-vote-nav">课程投票</nav>
 </header>
 <main>
     <div class="arrow" id="to-pre-page">></div>
@@ -65,11 +66,16 @@
         </div>
     </section>
     <section class="page main-next-page">
-        第3页
+        <div id="vote-page-container" class="container">
+            <h1>目前投票情况</h1>
+         <!--   <p>java: 0票</p>
+            <p>java: 0票</p>
+            <p>java: 0票</p>-->
+        </div>
     </section>
-    <section class="page main-next-page">
+<!--    <section class="page main-next-page">
         第4页
-    </section>
+    </section>-->
 </main>
 <aside>
 
@@ -77,8 +83,10 @@
 <footer>
 
 </footer>
+<script type="module" src="../modules/main/occupation-limit.js"></script>
 <script type="module" src="../plugins/fetch2.js"></script>
 <script type="module" src="../modules/main/get-student-info.js"></script>
+<script type="module" src="../modules/main/get-vote-info.js"></script>
 <script type="module" src="../modules/main/UI.js"></script>
 <script type="module" src="../modules/main/nav-event.js"></script>
 <script type="module" src="../modules/main/change-personal-info.js"></script>

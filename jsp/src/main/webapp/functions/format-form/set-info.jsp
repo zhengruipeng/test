@@ -8,6 +8,7 @@
 <%@ page import="java.util.TreeMap" %>
 <%@ page import="java.sql.Array" %>
 <%@ page import="java.util.Arrays" %>
+<%@ page import="java.nio.charset.StandardCharsets" %>
 <%
  /*
     htmlFormElement.appendChild(setupInputElement("id",id));
@@ -31,7 +32,7 @@
 //        out.println("getting"+cols);
         if(request.getParameter(cols) != null && !request.getParameter(cols).equals("")) {
             String value = request.getParameter(cols);
-            value = new String(value.getBytes("ISO-8859-1"),"UTF-8");
+            value = new String(value.getBytes(StandardCharsets.ISO_8859_1), StandardCharsets.UTF_8);
             table_maps.put(cols, value);
 //            out.println("get ONE" + request.getParameter(cols));
         }else {

@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded",function (){
                 </div>
             `,[1,5],[2,1],true],
         ["<span id='login'>登  录</span>",,[1,6],[2,1],false],
-        ["<span id='forget-pwd'>找   回</span>",,[1,7],[2,1]],
+        // ["<span id='forget-pwd'>找   回</span>",,[1,7],[2,1]],
     ],container);
 
     control1
         .importStyleSheet("../functions/gradient-form/form-style.css")
-        .initControls(2,6,"./main.html","post",undefined,"main-form");
+        .initControls(2,5,"./main.html","post",undefined,"main-form");
     // .runDefaultEffect("./plugins/gradient-form/form-UI.js");
     control1.formElement.style.width = "100%";
     control1.formElement.style.gridRowGap = "2em";

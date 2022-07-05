@@ -33,7 +33,7 @@ import {IndexedDBCurd} from "../../../../public/indexedDB-curd.js";
                 rs = operation.select("SELECT TABLE_NAME,COLUMN_NAME\n" +
                         "FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE\n" +
                         "WHERE TABLE_NAME<> 'dtproperties'\n" +
-                        "AND table_schema = 'database essential'");
+                        "AND table_schema = 'students'");
                 tableKeysMap = new TreeMap<String,String>();
                 while(rs.next()){
 //                    out.println(rs.getString("TABLE_NAME")+":"+rs.getString("COLUMN_NAME"));
@@ -53,7 +53,7 @@ import {IndexedDBCurd} from "../../../../public/indexedDB-curd.js";
 
             try {
                 rs = operation.select("show columns from "+table+"");
-//                System.out.print(table);
+                System.out.print(table);
                 while(rs.next()){
                     columns.add(rs.getString("Field"));
                     out.println("MyApp.tableCols.push('"+rs.getString("Field")+"');\n");
@@ -147,28 +147,53 @@ import {IndexedDBCurd} from "../../../../public/indexedDB-curd.js";
 
     indexDBReq.onupgradeneeded = function (){
         db = this.result;
-        store = db.createObjectStore("student"<%
-            if(tableKeysMap.get("student") != null) {
+        /*在更新的时候刷新对象存储*/
+        store = db.createObjectStore("tb_college"<%
+            if(tableKeysMap.get("tb_college") != null) {
                 out.println(",{keyPath:(`"+
-                        tableKeysMap.get("student")+"`).trim()}");
+                        tableKeysMap.get("tb_college")+"`).trim()}");
             }
         %>);
-        store = db.createObjectStore("course"<%
-            if(tableKeysMap.get("course") != null) {
+        store = db.createObjectStore("tb_course"<%
+            if(tableKeysMap.get("tb_course") != null) {
                 out.println(",{keyPath:(`"+
-                        tableKeysMap.get("course")+"`).trim()}");
+                        tableKeysMap.get("tb_course")+"`).trim()}");
             }
         %>);
-        store = db.createObjectStore("studentgrade"<%
-            if(tableKeysMap.get("studentgrade") != null) {
+        store = db.createObjectStore("tb_major"<%
+            if(tableKeysMap.get("tb_major") != null) {
                 out.println(",{keyPath:(`"+
-                        tableKeysMap.get("studentgrade")+"`).trim()}");
+                        tableKeysMap.get("tb_major")+"`).trim()}");
             }
         %>);
-        store = db.createObjectStore("exp_view"<%
-            if(tableKeysMap.get("exp_view") != null) {
+        store = db.createObjectStore("tb_manager"<%
+            if(tableKeysMap.get("tb_manager") != null) {
                 out.println(",{keyPath:(`"+
-                        tableKeysMap.get("exp_view")+"`).trim()}");
+                        tableKeysMap.get("tb_manager")+"`).trim()}");
+            }
+        %>);
+        store = db.createObjectStore("tb_select"<%
+            if(tableKeysMap.get("tb_select") != null) {
+                out.println(",{keyPath:(`"+
+                        tableKeysMap.get("tb_select")+"`).trim()}");
+            }
+        %>);
+        store = db.createObjectStore("tb_student"<%
+            if(tableKeysMap.get("tb_student") != null) {
+                out.println(",{keyPath:(`"+
+                        tableKeysMap.get("tb_student")+"`).trim()}");
+            }
+        %>);
+        store = db.createObjectStore("tb_teacher"<%
+            if(tableKeysMap.get("tb_teacher") != null) {
+                out.println(",{keyPath:(`"+
+                        tableKeysMap.get("tb_teacher")+"`).trim()}");
+            }
+        %>);
+        store = db.createObjectStore("tb_tp"<%
+            if(tableKeysMap.get("tb_tp") != null) {
+                out.println(",{keyPath:(`"+
+                        tableKeysMap.get("tb_tp")+"`).trim()}");
             }
         %>);
         /* console.log("onupgradeneeded");*/

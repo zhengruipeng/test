@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded",function (){
                     .then(response => response.text())
                     .then(text => {
                             console.log(text);
-                            if(text === "success"){
+                            if(text.indexOf ("success") !== -1){
                                 notify.print("更改成功");
                             }else{
                                 notify.print("更改失败");

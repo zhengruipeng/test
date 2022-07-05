@@ -129,6 +129,7 @@ document.addEventListener("DOMContentLoaded",function (){
                     "table-cols":formData.get("table-cols"),
                 });
 
+            // console.log(toURL);
             fetch2(toURL, {
                 body: formData,
                 method: "post",
@@ -290,6 +291,7 @@ document.addEventListener("DOMContentLoaded",function (){
                 }
                 // console.log(params);
                 //发送网络请求
+                // console.log(MyApp.handlePage);
                 let isHttpSuccess = httpReq("../../"+MyApp.handlePage, params);
                 if (!isHttpSuccess) {
                     notify.print("添加操作失败");
