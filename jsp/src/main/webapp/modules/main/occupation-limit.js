@@ -11,9 +11,14 @@ document.addEventListener("DOMContentLoaded",function () {
     if(occupation === "student"){
         limitItems.push(document.getElementById("course-teacher-nav"));
         limitItems.push(document.getElementById("account-manager"));
+        limitItems.push(document.getElementById("other-manager"));
+        limitItems.push(document.getElementById("my-course"));
+        limitItems.push(document.getElementById("change-select-course"));
     }else if(occupation === "teacher"){
         limitItems.push(document.getElementById("course-table-nav"));
         limitItems.push(document.getElementById("account-manager"));
+        limitItems.push(document.getElementById("student-course"));
+        limitItems.push(document.getElementById("other-manager"));
     }else if(occupation === "manager"){
         limitItems.push(document.getElementById("course-vote-nav"));
     }

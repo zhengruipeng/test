@@ -2,22 +2,20 @@ document.addEventListener("DOMContentLoaded",function () {
     const studentTableNav = this.querySelector("#student-table-nav");
     const courseTeacherNav = this.querySelector("#course-teacher-nav");
     const courseTableNav = this.querySelector("#course-table-nav");
+    const courseVoteNav = this.querySelector("#course-vote-nav");
     const accountManager = this.querySelector("#account-manager");
+    const otherManager = this.querySelector("#other-manager");
+    const changeSelectCourse = this.querySelector("#change-select-course");
+    const myCourse = this.querySelector("#my-course");
+    const studentCourse = this.querySelector("#student-course");
+
     const lis = accountManager?Array.from(accountManager.querySelectorAll("ul>li")):undefined;
     const lis2 = courseTableNav?Array.from(courseTableNav.querySelectorAll("ul>li")):undefined;
-    /*studentTableNav.onclick = function (){
-        location = "../functions/format-form/form/view/form.jsp?table=student&handlePage=set-info.jsp&" +
-            "enablePlugins=aside-UI,file-import,update-monolog&insertPlugins=./modules/main/helloWorld.js";
+    const lis3 = otherManager?Array.from(otherManager.querySelectorAll("ul>li")):undefined;
 
-    };*/
-    /*courseTableNav.onclick = function (){
-       /!* location = "../functions/format-form/form/view/form.jsp?table=course&handlePage=set-info.jsp&" +
-            "enablePlugins=aside-UI,update-monolog&insertPlugins=./modules/main/checkup-grade.js";*!/
-        location = "./"
-    };*/
     //老师管理选课
     courseTeacherNav && (courseTeacherNav.onclick = function (){
-        location = "./selecting-course-teacher.html";
+        // location = "./selecting-course-teacher.html";
         location = "../functions/format-form/form/view/form.jsp?table=tb_course&handlePage=set-info.jsp&" +
             "enablePlugins=*";
     })
@@ -43,4 +41,38 @@ document.addEventListener("DOMContentLoaded",function () {
             "enablePlugins=*";
     })
 
+    //管理专业
+    lis3 && (lis3[0].onclick = function (){
+        location = "../functions/format-form/form/view/form.jsp?table=tb_major&handlePage=set-info.jsp&" +
+            "enablePlugins=*";
+    })
+    //管理院系
+    lis3 && (lis3[1].onclick = function (){
+        location = "../functions/format-form/form/view/form.jsp?table=tb_college&handlePage=set-info.jsp&" +
+            "enablePlugins=*";
+    })
+
+    courseVoteNav && (courseVoteNav.onclick = function (){
+        location = "./course-vote.html";
+        // location = "../functions/format-form/form/view/form.jsp?table=tb_course&handlePage=set-info.jsp&" +
+        //     "enablePlugins=*";
+    });
+    changeSelectCourse && (changeSelectCourse.onclick = function (){
+        location = "../functions/format-form/form/view/form.jsp?table=tb_select&handlePage=set-info.jsp&" +
+            "enablePlugins=*";
+    })
+    //查看教师上课信息
+    myCourse && (myCourse.onclick = function (){
+        location = "./my-course.html";
+        // location = "../functions/format-form/form/view/form.jsp?table=tb_course&handlePage=set-info.jsp&" +
+        //     "enablePlugins=*";
+    });
+    //查看学生上课信息
+    studentCourse && (studentCourse.onclick = function (){
+        location = "./student-course.html";
+        // location = "../functions/format-form/form/view/form.jsp?table=tb_course&handlePage=set-info.jsp&" +
+        //     "enablePlugins=*";
+    });
+
+    // courseVoteNav
 });

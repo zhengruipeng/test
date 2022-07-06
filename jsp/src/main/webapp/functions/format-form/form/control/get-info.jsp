@@ -39,6 +39,8 @@ import {IndexedDBCurd} from "../../../../public/indexedDB-curd.js";
 //                    out.println(rs.getString("TABLE_NAME")+":"+rs.getString("COLUMN_NAME"));
                     tableKeysMap.put(rs.getString("TABLE_NAME"),rs.getString("COLUMN_NAME"));
                 }
+                tableKeysMap.put("tb_student","Sno");
+                tableKeysMap.put("tb_teacher","Tno");
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }catch (Exception e){

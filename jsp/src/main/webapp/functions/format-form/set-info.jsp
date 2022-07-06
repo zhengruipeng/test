@@ -61,7 +61,7 @@
     int row_num = operation.update(sql);
     out.println(row_num);
 
-//    out.println(sql);
+    System.out.println(sql);
 
     try {
         operation.closeAllStatus();
